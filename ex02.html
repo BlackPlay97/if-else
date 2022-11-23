@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Thực hành 2</title>
+  </head>
+  <body>
+    <script>
+      let user = prompt("Tên đăng nhập");
+      if (user == "admin") {
+        let pass = prompt("Mật khẩu");
+        if (pass == "themaster") {
+          alert("Chào mừng Admin");
+        } else if (pass == null) {
+          alert("Đã hủy bỏ đăng nhập");
+        } else {
+          alert("Sai mật khẩu");
+        }
+      } else if (user == null) {
+        alert("Đã hủy bỏ đăng nhập");
+      } else {
+        alert("Sai người dùng");
+      }
+    </script>
+  </body>
+</html>
