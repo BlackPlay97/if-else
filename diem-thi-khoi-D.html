@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tra cứu điểm thi khối D</title>
+  </head>
+  <body>
+    <h1 style="margin-bottom: 10px">Tính điểm ĐH khối D</h1>
+    Môn Toán <input type="text" id="math" size="1" style="margin-bottom: 10px"/><br />
+    Môn Văn <input type="text" id="lit" size="1" style="margin-bottom: 10px; margin-left: 5px;"/><br />
+    Môn Anh <input type="text" id="eng" size="1" style="margin-bottom: 10px; margin-left: 5px;"/><br />
+    Khu vực
+    <select id="area" style='margin-bottom: 10px'>
+      <option>KV1</option>
+      <option>KV2-NT</option>
+      <option>KV2</optionalue=>
+      <option>KV3</optionvalue=>
+    </select>
+    <br />
+    <button onclick="check()">Tính điểm</button>
+    <div id="show" style="color: red; font-size: 50px; margin-top: 5px;"></div>
+    <script>
+      function check() {
+        let area = document.getElementById("area");
+        let areaPoint;
+        let ketQua;
+        let mathPoint = document.getElementById("math");
+        let litPoint = document.getElementById("lit");
+        let engPoint = document.getElementById("eng");
+        if (mathPoint == null || litPoint == null || engPoint == null) {
+            litPoint = 0;
+            mathPoint = 0;
+            engPoint = 0;
+        }
+        switch (area.value) {
+          case "KV1":
+            areaPoint = 0.75;
+            break;
+          case "KV2-NT":
+            areaPoint = 0.5;
+            break;
+          case "KV2":
+            areaPoint = 0.25;
+            break;
+          default:
+            areaPoint = 0;
+            break;
+        }
+        ketQua =+mathPoint.value + +litPoint.value + +engPoint.value + areaPoint;
+            document.getElementById("show").innerHTML =
+              "Tổng điểm ĐH khối D của bạn là: " + ketQua;
+      }
+    </script>
+  </body>
+</html>
