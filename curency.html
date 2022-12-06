@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chuyển đổi tiền tệ</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <td style="width: 200px; text-align: center"><h3>Amount</h3></td>
+        <td style="width: 200px; text-align: center"><h3>From curency</h3></td>
+        <td style="width: 200px; text-align: center"><h3>To curency</h3></td>
+      </tr>
+      <tr>
+        <td align="center"><input type="text" id="amount" size="15" /></td>
+        <td align="center">
+          <select id="from">
+            <option value="VND">VND</option>
+            <option value="USA">USA</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </td>
+        <td align="center">
+          <select id="to">
+            <option value="VND">VND</option>
+            <option value="USA">USA</option>
+            <option value="EUR">EUR</option>
+          </select>
+        </td>
+        <td><button onclick="convert()">Convert</button></td>
+      </tr>
+    </table>
+    <div id="result" style="font-size: 30px; color: blue"></div>
+    <script>
+      function convert() {
+        let amount = +document.getElementById("amount").value;
+        let fromCurent = document.getElementById("from").value;
+        let toCurent = document.getElementById("to").value;
+        let curency = "";
+        switch (fromCurent) {
+          case "VND":
+            if (toCurent == "VND") {
+              curency = amount;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            } else if (toCurent == "USA") {
+              curency = amount / 24000;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            } else {
+              curency = amount / 25000;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            }
+            break;
+          case "USA":
+            if (toCurent == "VND") {
+              curency = amount * 24000;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            } else if (toCurent == "USA") {
+              curency = amount * 1;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            } else {
+              curency = amount * 0.95;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            }
+            break;
+          default:
+            if (toCurent == "VND") {
+              curency = amount * 25000;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            } else if (toCurent == "USA") {
+              curency = amount * 24000;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            } else {
+              curency = amount * 1;
+              document.getElementById("result").innerHTML =
+                "result: " + curency;
+            }
+            break;
+            console.log(curency);
+        }
+      }
+    </script>
+  </body>
+</html>
